@@ -1,0 +1,105 @@
+$t-duration: 0.4s;
+
+@mixin menu-base {
+    display: block;
+    position: absolute;
+    z-index: 999;
+    background: white;
+}
+
+@function v($var) {
+    @return var(--#{$var});
+}
+
+
+:host {
+
+    --slide-length: -300px;
+    --windowInnerWidth: 0px;
+    --windowInnerHeight: 0px;
+
+    #mask {
+        top: 0px;
+        left: 0px;
+        display: none;
+        background-color: rgba(0, 0, 0, 0.5);
+        opacity: 0.0;
+        width: 100vw;
+        height: 100vh;
+        z-index: 998;
+        position: absolute;
+        transition: opacity $t-duration ease-out;
+    }
+
+    #menu {
+        @include menu-base;
+    }
+
+    #menu[data-position="left"] {
+        border-right: 1px solid black;
+        left: v(slide-length);
+        top: 0px;
+        height: 100vh;
+        width: 300px;
+        overflow-y: auto;
+        transition: left $t-duration ease-out;
+    }
+
+    #menu[data-position="right"] {
+        border-left: 1px solid black;
+        left: v(windowInnerWidth);
+        top: 0px;
+        height: 100vh;
+        width: 300px;
+        overflow-y: auto;
+        transition: left $t-duration ease-out;
+    }
+
+
+    #menu[data-position="top"] {
+        top: v(slide-length);
+        left: 0;
+        width: 100vw;
+        border-bottom: 1px solid black;
+        transition: top $t-duration ease-out;
+    }
+
+    #menu[data-position="bottom"] {
+        top: v(windowInnerHeight);
+        left: 0;
+        width: 100vw;
+        overflow-x: auto;
+        border-top: 1px solid black;
+        transition: top $t-duration ease-out;
+    }
+
+    ::slotted(div) {
+        margin: 10px;
+    }
+}
+
+:host([open="true"]) {
+
+        #mask {
+            display: unset;
+            opacity: 0.5;
+        }
+
+        #menu[data-position="left"] {
+            left: 0px;
+        }
+
+        #menu[data-position="right"] {
+            left: v(slide-length);
+        }
+
+        #menu[data-position="top"] {
+            top: 0;
+            border-bottom: 1px solid black;
+        }
+
+        #menu[data-position="bottom"] {
+            top: v(slide-length);
+            border-bottom: 1px solid black;
+        }
+}

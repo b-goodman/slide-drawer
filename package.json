@@ -1,0 +1,41 @@
+{
+  "name": "@bgoodman/slide-drawer",
+  "version": "1.0.0",
+  "description": "Custom element containing a hidden sidebar wich reveals itself by sliding in from off the page.",
+  "main": "./dist/index.js",
+  "scripts": {
+    "build": "./node_modules/.bin/rollup -c ./rollup.config.js",
+    "start": "./node_modules/.bin/serve"
+  },
+  "keywords": [
+    "custom-element",
+    "webcomponents",
+    "drawer",
+    "slide-drawer",
+    "sidebar"
+  ],
+  "author": {
+    "name": "Benjamin Goodman",
+    "email": "b@thebgoodman.com"
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "@types/codemirror": "0.0.80",
+    "glob": "^7.1.6",
+    "rimraf": "^3.0.0",
+    "rollup": "^1.27.0",
+    "rollup-plugin-babel": "^4.3.3",
+    "rollup-plugin-commonjs": "^10.1.0",
+    "rollup-plugin-dts": "^1.1.12",
+    "rollup-plugin-node-resolve": "^5.2.0",
+    "rollup-plugin-postcss": "^2.0.3",
+    "rollup-plugin-typescript2": "^0.25.2",
+    "serve": "^11.2.0",
+    "typescript": "^3.7.2",
+    "typescript-plugin-css-modules": "^2.0.2"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/b-goodman/slide-drawer.git"
+  }
+}
